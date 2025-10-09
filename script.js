@@ -1,5 +1,5 @@
 //constante
-const NUM_EXO = 3
+const NUM_EXO = 61
 
 //objet
 //div
@@ -104,9 +104,6 @@ function GetExo() {
     
     
     lastExo.push(randExo)
-    
-
-    console.log(lastExo)
 
     //on affiche tout
     ImgConsigne.src = "image/Exo/"+randExo+".png"
