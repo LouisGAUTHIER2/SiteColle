@@ -1,5 +1,5 @@
 //constante
-const NUM_EXO = 15
+const NUM_EXO = 3
 
 //objet
 //div
@@ -13,6 +13,7 @@ const ButDebuter = document.getElementById("ButDebuter")
 const ButValider = document.getElementById("ButValider")
 const ButReussi = document.getElementById("ButReussi")
 const ButEchec = document.getElementById("ButEchec")
+const ButRedo = document.getElementById("ButRedo")
 
 //image
 const ImgConsigne = document.getElementById("ImgConsigne")
@@ -26,19 +27,27 @@ var lastExo = []
 var exoDone = 0
 var exoCorrect = 0
 
-for (var i = 1; i <= 15; i++) {
-    console.log("git mv image/Exo/"+i+".PNG image/Exo/"+i+".png")
-}
-
 //initialisation
 ButDebuter.addEventListener("click",function(){
     //on cache l'écran de démmarrage et on affiche le reste
     DivIntro.hidden = true
-    DivExo.hidden = false
-    DivDemanderSolu.hidden = false
 
     //on lance les events
     SetupMainEvent()
+})
+
+//pour tout relancer
+ButRedo.addEventListener("click", function() {
+    ButRedo.hidden = true
+    TextTauxReussite.hidden = true
+
+    exoDone = 0
+    exoCorrect = 0
+    lastExo = []
+
+    DivExo.hidden = false
+
+    GetExo()
 })
 
 //on met en place toutes les events après que le bouton "ButDebuter" ait été cliquer
@@ -69,10 +78,20 @@ function UpdateTauxReussite() {
     var taux = Math.floor(exoCorrect/exoDone * 100)
 
     TextTauxReussite.hidden = false
-    TextTauxReussite.textContent = "Taux de réussite : " + taux + "%"
+    TextTauxReussite.textContent = "Taux de réussite : " + taux + "% avec "+exoDone+" exercices faits sur "+NUM_EXO
 }
 
 function GetExo() {
+    if (lastExo.length >= NUM_EXO) {
+        ButRedo.hidden = false
+
+        ButValider.hidden = true
+        DivExo.hidden = true
+        DivResultat.hidden = true
+
+        return
+    }
+
     //on increment le nombre d'exo fait
     exoDone++
 
@@ -83,12 +102,11 @@ function GetExo() {
         randExo = GetRandInt(NUM_EXO)
     } while (isInList(lastExo, randExo))
     
-    if (lastExo.length >= NUM_EXO - 2) {
-        lastExo = []
-    }
-    else {
-        lastExo.push(randExo)
-    }
+    
+    lastExo.push(randExo)
+    
+
+    console.log(lastExo)
 
     //on affiche tout
     ImgConsigne.src = "image/Exo/"+randExo+".png"
@@ -99,11 +117,14 @@ function GetExo() {
 
     DivResultat.hidden = true
     DivDemanderSolu.hidden = false
+
+    DivExo.hidden = false
+    ButValider.hidden = false
 }
 
 function GetRandInt(max) {
     //on cherche un entier aléatoire entre 1 et max
-    return Math.floor(Math.random() * (max - 1)) + 1
+    return Math.floor(Math.random() * max) + 1
 }
 
 function isInList(list, element) {
