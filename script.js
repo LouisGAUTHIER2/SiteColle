@@ -26,6 +26,10 @@ var lastExo = []
 var exoDone = 0
 var exoCorrect = 0
 
+for (var i = 1; i <= 15; i++) {
+    console.log("git mv image/Exo/"+i+".PNG image/Exo/"+i+".png")
+}
+
 //initialisation
 ButDebuter.addEventListener("click",function(){
     //on cache l'écran de démmarrage et on affiche le reste
