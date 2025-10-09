@@ -3,9 +3,14 @@ body {
 }
 
 img {
+    display: block;
     max-width: 100%;
     height: auto;
     height: auto\9; /*ie8*/
+}
+
+img[hidden] {
+    display: none;
 }
 
 button {
