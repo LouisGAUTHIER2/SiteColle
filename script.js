@@ -87,8 +87,8 @@ function GetExo() {
     }
 
     //on affiche tout
-    ImgConsigne.src = "image/Exo/"+randExo+".PNG"
-    ImgSolution.src = "image/Solu/"+randExo+".PNG"
+    ImgConsigne.src = "image/Exo/"+randExo+".png"
+    ImgSolution.src = "image/Solu/"+randExo+".png"
 
     ImgConsigne.hidden = false
     ImgSolution.hidden = true
