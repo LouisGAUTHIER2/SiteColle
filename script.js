@@ -1,7 +1,3 @@
-//constante
-const NUM_EXO = 61
-var COLLE_NUM = 1
-
 //objet
 //div
 const DivIntro = document.getElementById("DivIntro")
@@ -10,7 +6,8 @@ const DivDemanderSolu = document.getElementById("DivDemanderSolu")
 const DivResultat = document.getElementById("DivResultat")
 
 //bouton
-const ButDebuter = document.getElementById("ButDebuter")
+const ButDebuter1 = document.getElementById("ButDebuter1")
+const ButDebuter2 = document.getElementById("ButDebuter2")
 const ButValider = document.getElementById("ButValider")
 const ButReussi = document.getElementById("ButReussi")
 const ButEchec = document.getElementById("ButEchec")
@@ -24,14 +21,28 @@ const ImgSolution = document.getElementById("ImgSolution")
 const TextTauxReussite = document.getElementById("TextTauxReussite")
 
 //variables globales
+var NUM_EXO = 61
+var COLLE_NUM = 1
 var lastExo = []
 var exoDone = 0
 var exoCorrect = 0
 
 //initialisation
-ButDebuter.addEventListener("click",function(){
+ButDebuter1.addEventListener("click",function(){
     //on cache l'écran de démmarrage et on affiche le reste
     DivIntro.hidden = true
+    COLLE_NUM = 1
+    NUM_EXO = 61
+
+    //on lance les events
+    SetupMainEvent()
+})
+
+ButDebuter2.addEventListener("click",function(){
+    //on cache l'écran de démmarrage et on affiche le reste
+    DivIntro.hidden = true
+    COLLE_NUM = 2
+    NUM_EXO = 41
 
     //on lance les events
     SetupMainEvent()
