@@ -1,5 +1,6 @@
 //constante
 const NUM_EXO = 61
+var COLLE_NUM = 1
 
 //objet
 //div
@@ -106,8 +107,8 @@ function GetExo() {
     lastExo.push(randExo)
 
     //on affiche tout
-    ImgConsigne.src = "image/Exo/"+randExo+".png"
-    ImgSolution.src = "image/Solu/"+randExo+".png"
+    ImgConsigne.src = "image/"+COLLE_NUM+"/Exo/"+randExo+".png"
+    ImgSolution.src = "image/"+COLLE_NUM+"/Solu/"+randExo+".png"
 
     ImgConsigne.hidden = false
     ImgSolution.hidden = true
