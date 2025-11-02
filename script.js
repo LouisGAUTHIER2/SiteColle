@@ -42,7 +42,7 @@ ButDebuter2.addEventListener("click",function(){
     //on cache l'écran de démmarrage et on affiche le reste
     DivIntro.hidden = true
     COLLE_NUM = 2
-    NUM_EXO = 41
+    NUM_EXO = 43
 
     //on lance les events
     SetupMainEvent()
