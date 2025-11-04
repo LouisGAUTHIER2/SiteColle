@@ -27,12 +27,16 @@ var lastExo = []
 var exoDone = 0
 var exoCorrect = 0
 
+var randExo = 0
+var exoReussi = []
+
 //initialisation
 ButDebuter1.addEventListener("click",function(){
     //on cache l'écran de démmarrage et on affiche le reste
     DivIntro.hidden = true
     COLLE_NUM = 1
     NUM_EXO = 61
+    exoReussi = []
 
     //on lance les events
     SetupMainEvent()
@@ -43,6 +47,7 @@ ButDebuter2.addEventListener("click",function(){
     DivIntro.hidden = true
     COLLE_NUM = 2
     NUM_EXO = 43
+    exoReussi = []
 
     //on lance les events
     SetupMainEvent()
@@ -56,6 +61,14 @@ ButRedo.addEventListener("click", function() {
     exoDone = 0
     exoCorrect = 0
     lastExo = []
+
+    //dupliquer des listes
+    for (var i = 0; i < exoReussi.length;i++) {
+        lastExo.push(exoReussi[i])
+    }
+
+    exoDone = exoReussi.length
+    exoCorrect = exoReussi.length
 
     DivExo.hidden = false
 
@@ -76,6 +89,7 @@ function SetupMainEvent() {
 
     ButReussi.addEventListener("click", function() {
         exoCorrect++
+        exoReussi.push(randExo)
         UpdateTauxReussite()
         GetExo()
     })
@@ -108,12 +122,9 @@ function GetExo() {
     exoDone++
 
     //on cherche un exo random et on met l'image exo + solu
-    var randExo
-    
     do {
         randExo = GetRandInt(NUM_EXO)
     } while (isInList(lastExo, randExo))
-    
     
     lastExo.push(randExo)
 
