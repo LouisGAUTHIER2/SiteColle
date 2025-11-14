@@ -8,6 +8,7 @@ const DivResultat = document.getElementById("DivResultat")
 //bouton
 const ButDebuter1 = document.getElementById("ButDebuter1")
 const ButDebuter2 = document.getElementById("ButDebuter2")
+const ButDebuter3 = document.getElementById("ButDebuter3")
 const ButValider = document.getElementById("ButValider")
 const ButReussi = document.getElementById("ButReussi")
 const ButEchec = document.getElementById("ButEchec")
@@ -47,6 +48,17 @@ ButDebuter2.addEventListener("click",function(){
     DivIntro.hidden = true
     COLLE_NUM = 2
     NUM_EXO = 43
+    exoReussi = []
+
+    //on lance les events
+    SetupMainEvent()
+})
+
+ButDebuter3.addEventListener("click",function(){
+    //on cache l'écran de démmarrage et on affiche le reste
+    DivIntro.hidden = true
+    COLLE_NUM = 3
+    NUM_EXO = 62
     exoReussi = []
 
     //on lance les events

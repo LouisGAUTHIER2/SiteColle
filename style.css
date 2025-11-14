@@ -55,6 +55,16 @@ button:hover {
     margin-top: 25px;
 }
 
+#ButDebuter3 {
+    background-color: rgb(89, 89, 205);
+    color: rgb(240, 232, 232);
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
 #DivIntro{
     position: absolute;
     top: 25%;
